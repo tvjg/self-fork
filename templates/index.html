@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>self-fork</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/pico.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+    
+  <main class="container">
+    <h1>Self-Fork</h1>
+
+    <p>This site serves a simple service to fork its own repo to an authenticated Github user's account. Click the button below to submit the fork request.</p>
+
+    <form method="post">
+      <button type="submit">Fork</button>
+    </form>
+  </main>
+</body>
+</html>
